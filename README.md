@@ -1,4 +1,4 @@
-<img width="1920" height="1200" alt="Screenshot (1223)" src="https://github.com/user-attachments/assets/1db76792-ea1e-45d3-831a-ef45ace51a2e" /># UrbanMart
+# UrbanMart
 
 Marketplace-style e-commerce platform built with Laravel REST API and React. The application supports multi-role users, payment gateway integration, product search, order management, and automated wallet settlement workflow. (Inspired by ruparupa.com)
 
@@ -376,15 +376,31 @@ Through this project I gained practical experience with:
 
 ## Screenshots
 
+### 1. Homepage
+
 <img width="1920" height="1200" alt="Screenshot (1219)" src="https://github.com/user-attachments/assets/1950c72d-bdd9-49f8-b8d6-c7c274fbdfb2" />
 
-<img width="1920" height="1200" alt="Screenshot (1220)" src="https://github.com/user-attachments/assets/3bc79ec8-7bb6-4446-9652-e501444f0a1a" />
+### 2. Product Detail
 
-<img width="1920" height="1200" alt="Screenshot (1221)" src="https://github.com/user-attachments/assets/cd246d6c-8562-4aee-b5a8-feff077b9008" />
+<img width="1920" height="1200" alt="Screenshot (1220)" src="https://github.com/user-attachments/assets/fccc232a-41b5-499e-8ddd-6d8ab24cde93" />
 
-<img width="1920" height="1200" alt="Screenshot (1222)" src="https://github.com/user-attachments/assets/8230fe3f-823f-4471-bb73-07a771f628f2" />
+### 3. Checkout Page
 
-<img width="1920" height="1200" alt="Screenshot (1223)" src="https://github.com/user-attachments/assets/7f81ba63-dcad-4e14-afa0-724710aa80f8" />
+<img width="1920" height="1200" alt="Screenshot (1224)" src="https://github.com/user-attachments/assets/9eeeeded-08f6-4a68-8f1e-99ee34c2543c" />
+
+### 4. Midtrans Payment
+
+<img width="1920" height="1200" alt="Screenshot (1222)" src="https://github.com/user-attachments/assets/0f495131-6aa5-49ed-beb4-5753b2747456" />
+
+<img width="1920" height="1200" alt="Screenshot (1223)" src="https://github.com/user-attachments/assets/cfe3f5c9-1a0c-426a-a0c7-6857c52c2d0d" />
+
+### 5. Seller Dashboard
+
+<img width="1920" height="1200" alt="Screenshot (1226)" src="https://github.com/user-attachments/assets/3d5097ba-a076-4fbf-b95b-46d9b8f92d69" />
+
+### 6. Admin Dashboard
+
+<img width="1920" height="1200" alt="Screenshot (1225)" src="https://github.com/user-attachments/assets/2a9fb69a-10af-4754-aea4-770c255c2281" />
 
 ---
 
@@ -413,3 +429,8 @@ http://localhost:5173
 
 Backend:
 http://127.0.0.1
+
+Login:
+
+Seller 1 :
+Email :
