@@ -101,18 +101,12 @@ The system automatically handles payment verification through webhooks and sched
 
 ## System Architecture
 
-React Frontend
-
-↓
-        
-Laravel REST API
-
-   ├── PostgreSQL
-   
-   ├── Redis
-   
-   ├── Typesense
-   
+React Frontend<br>
+↓<br>
+Laravel REST API<br>
+   ├── PostgreSQL<br>
+   ├── Redis<br>
+   ├── Typesense<br>
    └── Midtrans
 
 ---
@@ -213,26 +207,16 @@ This settlement workflow simulates how marketplace platforms delay seller settle
 
 Workflow:
 
-Buyer Payment
-
-↓
-
-Platform Holding Balance
-
-↓
-
-Order Delivered
-
-↓
-
-Confirmation Period
-
-↓
-
-Scheduled Settlement
-
-↓
-
+Buyer Payment<br>
+↓<br>
+Platform Holding Balance<br>
+↓<br>
+Order Delivered<br>
+↓<br>
+Confirmation Period<br>
+↓<br>
+Scheduled Settlement<br>
+↓<br>
 Partner Wallet
 
 ---
@@ -432,14 +416,14 @@ http://127.0.0.1
 
 Login:
 
-Admin :
-Email : admin@urbanmart.com
+Admin :<br>
+Email : admin@urbanmart.com<br>
 Password : admin123
 
-Seller 1 :
-Email : azko@urbanmart.com
+Seller 1 :<br>
+Email : azko@urbanmart.com<br>
 Password : azko123
 
-Seller 2 :
-Email : selma@urbanmart.com
+Seller 2 :<br>
+Email : selma@urbanmart.com<br>
 Password : selma123
