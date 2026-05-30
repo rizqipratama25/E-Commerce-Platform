@@ -1,6 +1,6 @@
 # UrbanMart
 
-Marketplace-style e-commerce platform built with Laravel REST API and React. The application supports multi-role users, payment gateway integration, product search, order management, and automated seller payout workflows. (Inspired by ruparupa.com)
+Marketplace-style e-commerce platform built with Laravel REST API and React. The application supports multi-role users, payment gateway integration, product search, order management, and automated wallet settlement workflow. (Inspired by ruparupa.com)
 
 ## Overview
 
@@ -45,6 +45,7 @@ The system automatically handles payment verification through webhooks and sched
 ## Project Statistics
 
 - 30+ database tables
+- 50+ API endpoints
 - 3 user roles
 - Payment gateway integration
 - Full-text search integration
@@ -100,27 +101,19 @@ The system automatically handles payment verification through webhooks and sched
 
 ## System Architecture
 
-React + TypeScript
+React Frontend
 
 ↓
-
+        
 Laravel REST API
 
-↓
-
-PostgreSQL Database
-
-↓
-
-Redis Cache & Queue
-
-↓
-
-Typesense Search Engine
-
-↓
-
-Midtrans Payment Gateway
+   ├── PostgreSQL
+   
+   ├── Redis
+   
+   ├── Typesense
+   
+   └── Midtrans
 
 ---
 
@@ -258,6 +251,7 @@ After a successful order:
 6. Wallet transactions are recorded for auditing purposes.
 
 This workflow was implemented to simulate marketplace-style settlement processes while maintaining transaction traceability through wallet ledgers.
+This implementation simulates marketplace settlement behavior and is not intended to serve as a regulated escrow service.
 
 ---
 
