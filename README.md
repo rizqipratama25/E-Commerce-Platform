@@ -386,7 +386,7 @@ Through this project I gained practical experience with:
 
 ### 3. Checkout Page
 
-<img width="1920" height="1200" alt="Screenshot (1224)" src="https://github.com/user-attachments/assets/9eeeeded-08f6-4a68-8f1e-99ee34c2543c" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/c27e5290-a0e7-4b54-8208-da835f8366c3" />
 
 ### 4. Midtrans Payment
 
@@ -432,5 +432,14 @@ http://127.0.0.1
 
 Login:
 
+Admin :
+Email : admin@urbanmart.com
+Password : admin123
+
 Seller 1 :
-Email :
+Email : azko@urbanmart.com
+Password : azko123
+
+Seller 2 :
+Email : selma@urbanmart.com
+Password : selma123
