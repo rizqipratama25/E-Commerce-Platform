@@ -46,7 +46,6 @@ The system automatically handles payment verification through webhooks and sched
 
 - 30+ database tables
 - 3 user roles
-- 4 core business domains
 - Payment gateway integration
 - Full-text search integration
 - Queue-based background processing
