@@ -33,7 +33,7 @@ UrbanMart uses a separated frontend-backend architecture:
 
 * React for the frontend
 * Laravel REST API for backend services
-* MySQL for transactional data
+* PostgreSQL for transactional data
 * Redis for caching and queue-related operations
 * Typesense for search functionality
 * Midtrans for payment processing
@@ -98,7 +98,7 @@ Laravel REST API
 
 ↓
 
-MySQL Database
+PostgreSQL Database
 
 ↓
 
@@ -199,7 +199,14 @@ Stores:
 * Wallets
 * Wallet Transactions
 
-Instead of immediately releasing funds to sellers, the system introduces a holding mechanism.
+Instead of immediately crediting seller balances after payment, the platform temporarily holds transaction funds.
+
+Funds are released to the seller's internal wallet when:
+
+The buyer confirms the order has been received, or
+Three days have passed after delivery without any dispute.
+
+This settlement workflow simulates how marketplace platforms delay seller settlements to provide buyer protection and dispute handling periods.
 
 Workflow:
 
@@ -207,21 +214,40 @@ Buyer Payment
 
 ↓
 
-Escrow Holding
+Platform Holding Balance
 
 ↓
 
-Order Completion
+Order Delivered
 
 ↓
 
-Scheduled Release
+Confirmation Period
+
+↓
+
+Scheduled Settlement
 
 ↓
 
 Partner Wallet
 
-This approach simulates marketplace settlement processes commonly used by large e-commerce platforms.
+---
+
+### Internal Wallet Settlement
+
+The platform includes an internal wallet system for sellers.
+
+After a successful order:
+
+1. Customer payment is received by the platform.
+2. Funds are temporarily held.
+3. The order enters a confirmation period.
+4. Settlement is processed automatically.
+5. Seller balance is credited to their internal wallet.
+6. Wallet transactions are recorded for auditing purposes.
+
+This workflow was implemented to simulate marketplace-style settlement processes while maintaining transaction traceability through wallet ledgers.
 
 ---
 
@@ -307,7 +333,7 @@ Through this project I gained practical experience with:
 
 ### Database
 
-* MySQL
+* PostgreSQL
 * Redis
 
 ### Search
@@ -354,4 +380,4 @@ Frontend:
 http://localhost:5173
 
 Backend:
-http://localhost:8000
+http://127.0.0.1
