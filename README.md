@@ -91,15 +91,25 @@ The system automatically handles payment verification through webhooks and sched
 ## System Architecture
 
 React + TypeScript
+
 ↓
+
 Laravel REST API
+
 ↓
+
 MySQL Database
+
 ↓
+
 Redis Cache & Queue
+
 ↓
+
 Typesense Search Engine
+
 ↓
+
 Midtrans Payment Gateway
 
 ---
