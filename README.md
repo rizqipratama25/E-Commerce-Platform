@@ -42,6 +42,17 @@ The system automatically handles payment verification through webhooks and sched
 
 ---
 
+### Project Statistics
+
+- 30+ database tables
+- 3 user roles
+- 4 core business domains
+- Payment gateway integration
+- Full-text search integration
+- Queue-based background processing
+
+---
+
 ## Key Features
 
 ### Authentication & Authorization
@@ -193,7 +204,7 @@ Stores:
 
 ---
 
-#### Escrow & Settlement
+#### Marketplace Settlement
 
 * Order Payouts
 * Wallets
@@ -301,6 +312,26 @@ Sellers should not receive funds immediately.
 
 Solution:
 Implemented delayed payout scheduling using Laravel Scheduler.
+
+---
+
+## Engineering Decisions
+
+### Why PostgreSQL?
+
+PostgreSQL was chosen because it provides strong relational modeling capabilities, advanced indexing features, and better support for complex marketplace transactions.
+
+### Why Typesense Instead of Database Search?
+
+As product volume grows, SQL LIKE queries become inefficient. Typesense provides dedicated full-text search capabilities with filtering and sorting support.
+
+### Why Separate Checkout Sessions From Orders?
+
+Checkout sessions allow temporary purchase states to exist before an order is officially created, reducing inconsistencies during payment processing.
+
+### Why Internal Wallets?
+
+Instead of directly crediting sellers after payment, an internal wallet system was introduced to simulate marketplace settlement workflows and maintain transaction history through wallet ledgers.
 
 ---
 
