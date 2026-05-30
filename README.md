@@ -391,7 +391,7 @@ Through this project I gained practical experience with:
 ### Installation
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/rizqipratama25/E-commerce
 cd urbanmart
 
 docker compose build
