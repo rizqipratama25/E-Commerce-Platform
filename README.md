@@ -1,4 +1,4 @@
-# UrbanMart
+<img width="1920" height="1200" alt="Screenshot (1223)" src="https://github.com/user-attachments/assets/1db76792-ea1e-45d3-831a-ef45ace51a2e" /># UrbanMart
 
 Marketplace-style e-commerce platform built with Laravel REST API and React. The application supports multi-role users, payment gateway integration, product search, order management, and automated wallet settlement workflow. (Inspired by ruparupa.com)
 
@@ -376,7 +376,15 @@ Through this project I gained practical experience with:
 
 ## Screenshots
 
-(Add screenshots here)
+<img width="1920" height="1200" alt="Screenshot (1219)" src="https://github.com/user-attachments/assets/1950c72d-bdd9-49f8-b8d6-c7c274fbdfb2" />
+
+<img width="1920" height="1200" alt="Screenshot (1220)" src="https://github.com/user-attachments/assets/3bc79ec8-7bb6-4446-9652-e501444f0a1a" />
+
+<img width="1920" height="1200" alt="Screenshot (1221)" src="https://github.com/user-attachments/assets/cd246d6c-8562-4aee-b5a8-feff077b9008" />
+
+<img width="1920" height="1200" alt="Screenshot (1222)" src="https://github.com/user-attachments/assets/8230fe3f-823f-4471-bb73-07a771f628f2" />
+
+<img width="1920" height="1200" alt="Screenshot (1223)" src="https://github.com/user-attachments/assets/7f81ba63-dcad-4e14-afa0-724710aa80f8" />
 
 ---
 
