@@ -1,6 +1,6 @@
 # UrbanMart
 
-Marketplace-style e-commerce platform built with Laravel REST API and React. The application supports multi-role users, payment gateway integration, product search, order management, and automated seller payout workflows.
+Marketplace-style e-commerce platform built with Laravel REST API and React. The application supports multi-role users, payment gateway integration, product search, order management, and automated seller payout workflows. (Inspired by ruparupa.com)
 
 ## Overview
 
