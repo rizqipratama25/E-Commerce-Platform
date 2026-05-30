@@ -1,61 +1,362 @@
-﻿# E-commerce (UrbanMart)
+# UrbanMart
 
-# Instalasi dan konfigurasi ngrok
-## 1. Install Ngrok
-Download dan install Ngrok dari website resmi: https://ngrok.com/download
-Pastikan setelah install kamu bisa menjalankan:
+Marketplace-style e-commerce platform built with Laravel REST API and React. The application supports multi-role users, payment gateway integration, product search, order management, and automated seller payout workflows.
+
+## Overview
+
+UrbanMart was built to simulate a real-world marketplace where buyers can purchase products from multiple sellers while the platform manages payment processing and settlement workflows.
+
+Unlike a traditional online store, marketplace systems introduce additional complexity such as payment verification, seller payouts, role-based permissions, and asynchronous event handling.
+
+This project was created to explore those engineering challenges using a modern Laravel + React architecture.
+
+---
+
+## Problem
+
+Building a marketplace is more complex than building a standard e-commerce website.
+
+Several technical challenges must be addressed:
+
+* Managing multiple user roles (Buyer, Seller, Admin)
+* Processing payments securely
+* Handling payment gateway callbacks
+* Preventing immediate seller withdrawals
+* Providing fast product search
+* Maintaining data consistency across transactions
+
+---
+
+## Solution
+
+UrbanMart uses a separated frontend-backend architecture:
+
+* React for the frontend
+* Laravel REST API for backend services
+* MySQL for transactional data
+* Redis for caching and queue-related operations
+* Typesense for search functionality
+* Midtrans for payment processing
+
+The system automatically handles payment verification through webhooks and schedules delayed seller payouts after successful order completion.
+
+---
+
+## Key Features
+
+### Authentication & Authorization
+
+* Buyer accounts
+* Seller accounts
+* Administrator accounts
+* Laravel Sanctum authentication
+* Role-based access control
+
+### Product Management
+
+* Product creation
+* Product editing
+* Product categorization
+* Product inventory tracking
+
+### Marketplace Orders
+
+* Shopping cart
+* Checkout process
+* Order tracking
+* Multi-seller transactions
+
+### Payment Integration
+
+* Midtrans payment gateway integration
+* Webhook processing
+* Payment status synchronization
+* Transaction verification
+
+### Seller Settlement
+
+* Delayed seller payout workflow
+* Scheduled payout processing
+* Automated settlement execution
+
+### Search System
+
+* Typesense-powered product search
+* Keyword search
+* Filtering
+* Sorting
+
+---
+
+## System Architecture
+
+Frontend
+
+React + TypeScript
+
+↓
+
+Laravel REST API
+
+↓
+
+MySQL Database
+
+↓
+
+Redis Cache & Queue
+
+↓
+
+Typesense Search Engine
+
+↓
+
+Midtrans Payment Gateway
+
+---
+
+## Database Design
+
+The database was designed around marketplace transaction workflows rather than a traditional online store.
+
+### Core Domains
+
+#### User Management
+
+* Users
+* Wallets
+* Wallet Transactions
+* Addresses
+
+Supports multiple user roles:
+
+* Buyer
+* Partner (Seller)
+* Admin
+
+Each user can manage multiple shipping addresses and maintain a wallet balance for settlement transactions.
+
+---
+
+#### Product Catalog
+
+* Products
+* Product Images
+* Categories
+
+Features:
+
+* Hierarchical categories
+* Product ownership by partner
+* Inventory management
+* Product search indexing
+
+---
+
+#### Checkout System
+
+* Carts
+* Cart Items
+* Checkout Sessions
+* Checkout Items
+
+A dedicated checkout session layer was introduced to preserve checkout state and support both cart-based and buy-now purchase flows.
+
+---
+
+#### Order Management
+
+* Orders
+* Order Items
+* Order Shipments
+
+Orders are separated from shipments to support marketplace scenarios where products may belong to different partners.
+
+This design enables:
+
+* Multi-seller orders
+* Independent shipment tracking
+* Per-partner fulfillment workflows
+
+---
+
+#### Payment Processing
+
+* Order Payments
+
+Stores:
+
+* Midtrans transaction references
+* Payment status
+* Payment method
+* Webhook payloads
+* Payment expiration data
+
+---
+
+#### Escrow & Settlement
+
+* Order Payouts
+* Wallets
+* Wallet Transactions
+
+Instead of immediately releasing funds to sellers, the system introduces a holding mechanism.
+
+Workflow:
+
+Buyer Payment
+
+↓
+
+Escrow Holding
+
+↓
+
+Order Completion
+
+↓
+
+Scheduled Release
+
+↓
+
+Partner Wallet
+
+This approach simulates marketplace settlement processes commonly used by large e-commerce platforms.
+
+---
+
+#### Shipping & Logistics
+
+* Shipping Services
+* Provinces
+* Cities
+* Districts
+* Urban Villages
+
+Supports shipping cost calculation and Indonesian regional address management.
+
+---
+
+## Payment Flow
+
+1. Buyer places an order
+2. System creates Midtrans transaction
+3. Buyer completes payment
+4. Midtrans sends webhook notification
+5. Backend verifies payment status
+6. Order status is updated
+7. Seller payout is scheduled
+8. Scheduler processes payout after settlement period
+
+---
+
+## Technical Challenges
+
+### Webhook Reliability
+
+Challenge:
+Payment notifications arrive asynchronously.
+
+Solution:
+Webhook validation and idempotent processing were implemented to avoid duplicate updates.
+
+### Search Performance
+
+Challenge:
+Database search becomes slower as product volume grows.
+
+Solution:
+Integrated Typesense search engine for faster indexing and filtering.
+
+### Marketplace Settlement Logic
+
+Challenge:
+Sellers should not receive funds immediately.
+
+Solution:
+Implemented delayed payout scheduling using Laravel Scheduler.
+
+---
+
+## Lessons Learned
+
+Through this project I gained practical experience with:
+
+* REST API architecture
+* Payment gateway integration
+* Webhook handling
+* Search engine integration
+* Marketplace workflows
+* Queue and scheduling concepts
+* Database design
+* Dockerized development environments
+
+---
+
+## Technology Stack
+
+### Backend
+
+* Laravel
+* PHP
+
+### Frontend
+
+* React
+* TypeScript
+
+### Database
+
+* MySQL
+* Redis
+
+### Search
+
+* Typesense
+
+### Infrastructure
+
+* Docker
+
+### Payments
+
+* Midtrans
+
+---
+
+## Screenshots
+
+(Add screenshots here)
+
+---
+
+## Local Development Setup
+
+### Prerequisites
+
+* Docker Desktop
+* Ngrok
+* Git
+
+### Installation
 
 ```bash
-ngrok --version
-```
-Jika versi muncul, berarti instalasi berhasil
+git clone <repository-url>
+cd urbanmart
 
-## 2. Login ke Dashboard Ngrok
-Buka link berikut:
-https://dashboard.ngrok.com/get-started/your-authtoken
-Jika belum login, silakan login terlebih dahulu.
-
-## 3. Salin Authtoken
-Klik ikon mata (👁) untuk menampilkan authtoken
-Salin token tersebut
-
-## 4. Konfigurasi Authtoken di Terminal
-Jalankan perintah berikut di terminal:
-```bash
-ngrok config add-authtoken YOUR_AUTHTOKEN
-```
-Ganti YOUR_AUTHTOKEN dengan token yang kamu salin dari dashboard.
-Contoh:
-```bash
-ngrok config add-authtoken 2abc123xyz456example
+docker compose build
+docker compose up
 ```
 
-## 5. Verifikasi
-Jika berhasil, kamu akan melihat pesan bahwa authtoken telah ditambahkan.
-Sekarang Ngrok sudah terinstall dan terkonfigurasi dengan benar
+Application:
 
-# Insatalasi dan Konfigurasi Docker
-## 1. Install WSL
-Silahkan tonton video tutorial instalasi WSL ini : https://youtu.be/zqw4EsSMMf4?si=4GoShx_ie1TOZjAl
+Frontend:
+http://localhost:5173
 
-## 2. Install Docker
-Silahkan tonton video tutorial instalasi dan konfigurasi docker ini : https://youtu.be/t1qdBtJWJWU?si=dsLfVxbJwkMQ9shr
+Backend:
+http://localhost:8000
 
-# Cara menjalankan Proyek
-1. Buka docker desktop
-2. Buka folder project di terminal
-3. Jalankan perintah ini
-```bash
-mkdir typesense-data
 ```
-4. Lalu jalankan perintah
-```bash
-docker-compose build
 ```
-Ini akan membutuhkan waktu yang sedikit lama
-5. Setelah itu jalankan perintah
-``` bash
-docker-compose up
-```
-6. Lalu buka port localhost:5173 di browser
-7. Proyek sudah jalan
