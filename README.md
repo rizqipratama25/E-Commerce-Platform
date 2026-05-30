@@ -391,8 +391,8 @@ Through this project I gained practical experience with:
 ### Installation
 
 ```bash
-git clone https://github.com/rizqipratama25/E-commerce
-cd urbanmart
+git clone https://github.com/rizqipratama25/E-Commerce-Platform
+cd E-Commerce-Platform
 
 docker compose build
 docker compose up
