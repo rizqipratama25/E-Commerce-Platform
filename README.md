@@ -1,3 +1,7 @@
+<p align="center">
+   <img width="240" height="135" alt="urbanmart-logo" src="https://github.com/user-attachments/assets/dca2975d-bbd8-455b-b705-c46b4432e013" />
+</p>
+
 # UrbanMart
 
 Marketplace-style e-commerce platform built with Laravel REST API and React. The application supports multi-role users, payment gateway integration, product search, order management, and automated wallet settlement workflow. (Inspired by ruparupa.com)
