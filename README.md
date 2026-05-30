@@ -42,7 +42,7 @@ The system automatically handles payment verification through webhooks and sched
 
 ---
 
-### Project Statistics
+## Project Statistics
 
 - 30+ database tables
 - 3 user roles
